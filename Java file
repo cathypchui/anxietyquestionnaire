@@ -1,0 +1,544 @@
+package com.example.android.gad7;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    int finalScore = 0;
+
+    //this method calculates the final score upon submission of all answers
+    public void submitAnswers(View view) {
+        RadioGroup answerGroup1 = findViewById(R.id.answer_group1);
+        if (answerGroup1.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), "You did not answer Question 1. Please answer all questions.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        RadioGroup answerGroup2 = findViewById(R.id.answer_group2);
+        if (answerGroup2.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), "You did not answer Question 2. Please answer all questions.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        RadioGroup answerGroup3 = findViewById(R.id.answer_group3);
+        if (answerGroup3.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), "You did not answer Question 3. Please answer all questions.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        RadioGroup answerGroup4 = findViewById(R.id.answer_group4);
+        if (answerGroup4.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), "You did not answer Question 4. Please answer all questions.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        RadioGroup answerGroup5 = findViewById(R.id.answer_group5);
+        if (answerGroup5.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), "You did not answer Question 5. Please answer all questions.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        RadioGroup answerGroup6 = findViewById(R.id.answer_group6);
+        if (answerGroup6.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), "You did not answer Question 6. Please answer all questions.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        RadioGroup answerGroup7 = findViewById(R.id.answer_group7);
+        if (answerGroup7.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), "You did not answer Question 7. Please answer all questions.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        severalDays();
+        moreThanHalf();
+        nearlyEvery();
+        displayResults(finalScore);
+        CheckBox emailCheck =findViewById(R.id.email_check);
+        if(emailCheck.isChecked()){
+            emailSomeone();
+        }
+        finalScore = 0;
+    }
+    /*this method resets all radio buttons to unchecked
+    *and resets the finalScore to 0
+    * and resets the resultsSummary
+    * and resets all checkboxes to unchecked
+    * and clears out the write-in answer
+    */
+
+    public void resetMethod(View view) {
+        RadioGroup answerGroup1 = findViewById(R.id.answer_group1);
+        answerGroup1.clearCheck();
+        RadioGroup answerGroup2 = findViewById(R.id.answer_group2);
+        answerGroup2.clearCheck();
+        RadioGroup answerGroup3 = findViewById(R.id.answer_group3);
+        answerGroup3.clearCheck();
+        RadioGroup answerGroup4 = findViewById(R.id.answer_group4);
+        answerGroup4.clearCheck();
+        RadioGroup answerGroup5 = findViewById(R.id.answer_group5);
+        answerGroup5.clearCheck();
+        RadioGroup answerGroup6 = findViewById(R.id.answer_group6);
+        answerGroup6.clearCheck();
+        RadioGroup answerGroup7 = findViewById(R.id.answer_group7);
+        answerGroup7.clearCheck();
+        RadioGroup answerGroup8 = findViewById(R.id.answer_group8);
+        answerGroup8.clearCheck();
+        EditText writeIn = findViewById(R.id.write_in);
+        writeIn.setText(null);
+        CheckBox emailCheck = findViewById(R.id.email_check);
+        if (emailCheck.isChecked()) {
+            emailCheck.setChecked(false);}
+        CheckBox check1 = findViewById(R.id.check_1);
+        if (check1.isChecked()) {
+            check1.setChecked(false);
+        }
+        CheckBox check2 = findViewById(R.id.check_2);
+        if (check2.isChecked()) {
+            check2.setChecked(false);
+        }
+        CheckBox check3 = findViewById(R.id.check_3);
+        if (check3.isChecked()) {
+            check3.setChecked(false);
+        }
+        CheckBox check4 = findViewById(R.id.check_4);
+        if (check4.isChecked()) {
+            check4.setChecked(false);
+        }
+        CheckBox check5 = findViewById(R.id.check_5);
+        if (check5.isChecked()) {
+            check5.setChecked(false);
+        }
+        CheckBox check6 = findViewById(R.id.check_6);
+        if (check6.isChecked()) {
+            check6.setChecked(false);
+        }
+        CheckBox check7 = findViewById(R.id.check_7);
+        if (check7.isChecked()) {
+            check7.setChecked(false);
+        }
+        CheckBox check8 = findViewById(R.id.check_8);
+        if (check8.isChecked()) {
+            check8.setChecked(false);
+        }
+        CheckBox check9 = findViewById(R.id.check_9);
+        if (check9.isChecked()) {
+            check9.setChecked(false);
+        }
+        CheckBox check10 = findViewById(R.id.check_10);
+        if (check10.isChecked()) {
+            check10.setChecked(false);
+        }
+        CheckBox check11 = findViewById(R.id.check_11);
+        if (check11.isChecked()) {
+            check11.setChecked(false);}
+        finalScore = 0;
+    }
+    private void emailSomeone(){
+        String resultsStatement = "Final score: " + finalScore;
+        if (finalScore < 5) {
+            resultsStatement = resultsStatement + "\n" + "Your score is below the threshold score for mild anxiety";
+        } else if (finalScore > 4 && finalScore < 10) {
+            resultsStatement = resultsStatement + "\n" + "Your score indicates mild anxiety";
+        } else if (finalScore > 9 && finalScore < 15) {
+            resultsStatement = resultsStatement + "\n" + "Your score indicates moderate anxiety. Please seek further evaluation.";
+        } else if (finalScore > 14 && finalScore < 22) {
+            resultsStatement = resultsStatement + "\n" + "Your score indicates severe anxiety. Please seek further evaluation";
+        }
+        //this code writes the part of the email that contains the GAD-7 questionnaire
+        resultsStatement = resultsStatement + "\n"+ getString(R.string.overLastTwoWeeksString);
+        //adds results for question 1
+        resultsStatement = resultsStatement + "\n"+ getString(R.string.question1String);
+        RadioButton notAtAll1 = findViewById(R.id.not_at_all1);
+        if (notAtAll1.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.notAtAllString);
+        }
+        RadioButton severalDays1 = findViewById(R.id.several_days1);
+        if (severalDays1.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.severalDaysString);
+        }
+        RadioButton moreThanHalf1 = findViewById(R.id.more_than_half1);
+        if(moreThanHalf1.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.moreThanHalfString);
+        }
+        RadioButton nearlyEveryDay1 = findViewById(R.id.nearly_every_day1);
+        if(nearlyEveryDay1.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.nearlyEveryDayString);
+        }
+        //adds results for question 2
+        resultsStatement = resultsStatement + "\n"+ getString(R.string.question2String);
+        RadioButton notAtAll2 = findViewById(R.id.not_at_all2);
+        if (notAtAll2.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.notAtAllString);
+        }
+        RadioButton severalDays2 = findViewById(R.id.several_days2);
+        if (severalDays2.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.severalDaysString);
+        }
+        RadioButton moreThanHalf2 = findViewById(R.id.more_than_half2);
+        if(moreThanHalf2.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.moreThanHalfString);
+        }
+        RadioButton nearlyEveryDay2 = findViewById(R.id.nearly_every_day2);
+        if(nearlyEveryDay2.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.nearlyEveryDayString);
+        }
+        //adds results for question 3
+        resultsStatement = resultsStatement + "\n"+ getString(R.string.question3String);
+        RadioButton notAtAll3 = findViewById(R.id.not_at_all3);
+        if (notAtAll3.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.notAtAllString);
+        }
+        RadioButton severalDays3 = findViewById(R.id.several_days3);
+        if (severalDays3.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.severalDaysString);
+        }
+        RadioButton moreThanHalf3 = findViewById(R.id.more_than_half3);
+        if(moreThanHalf3.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.moreThanHalfString);
+        }
+        RadioButton nearlyEveryDay3 = findViewById(R.id.nearly_every_day3);
+        if(nearlyEveryDay3.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.nearlyEveryDayString);
+        }
+        //adds results for question 4
+        resultsStatement = resultsStatement + "\n"+ getString(R.string.question4String);
+        RadioButton notAtAll4 = findViewById(R.id.not_at_all4);
+        if (notAtAll4.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.notAtAllString);
+        }
+        RadioButton severalDays4 = findViewById(R.id.several_days4);
+        if (severalDays4.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.severalDaysString);
+        }
+        RadioButton moreThanHalf4 = findViewById(R.id.more_than_half4);
+        if(moreThanHalf4.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.moreThanHalfString);
+        }
+        RadioButton nearlyEveryDay4 = findViewById(R.id.nearly_every_day4);
+        if(nearlyEveryDay4.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.nearlyEveryDayString);
+        }
+        //adds results for question 5
+        resultsStatement = resultsStatement + "\n"+ getString(R.string.question5String);
+        RadioButton notAtAll5 = findViewById(R.id.not_at_all5);
+        if (notAtAll5.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.notAtAllString);
+        }
+        RadioButton severalDays5 = findViewById(R.id.several_days5);
+        if (severalDays5.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.severalDaysString);
+        }
+        RadioButton moreThanHalf5 = findViewById(R.id.more_than_half5);
+        if(moreThanHalf5.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.moreThanHalfString);
+        }
+        RadioButton nearlyEveryDay5 = findViewById(R.id.nearly_every_day5);
+        if(nearlyEveryDay5.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.nearlyEveryDayString);
+        }
+        //adds results for question 6
+        resultsStatement = resultsStatement + "\n"+ getString(R.string.question6String);
+        RadioButton notAtAll6 = findViewById(R.id.not_at_all6);
+        if (notAtAll6.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.notAtAllString);
+        }
+        RadioButton severalDays6 = findViewById(R.id.several_days6);
+        if (severalDays6.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.severalDaysString);
+        }
+        RadioButton moreThanHalf6 = findViewById(R.id.more_than_half6);
+        if(moreThanHalf6.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.moreThanHalfString);
+        }
+        RadioButton nearlyEveryDay6 = findViewById(R.id.nearly_every_day6);
+        if(nearlyEveryDay6.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.nearlyEveryDayString);
+        }
+        //adds results for question 7
+        resultsStatement = resultsStatement + "\n"+ getString(R.string.question7String);
+        RadioButton notAtAll7 = findViewById(R.id.not_at_all7);
+        if (notAtAll7.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.notAtAllString);
+        }
+        RadioButton severalDays7 = findViewById(R.id.several_days7);
+        if (severalDays7.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.severalDaysString);
+        }
+        RadioButton moreThanHalf7 = findViewById(R.id.more_than_half7);
+        if(moreThanHalf7.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.moreThanHalfString);
+        }
+        RadioButton nearlyEveryDay7 = findViewById(R.id.nearly_every_day7);
+        if(nearlyEveryDay7.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.nearlyEveryDayString);
+        }
+        //adds results for question 8
+        resultsStatement = resultsStatement + "\n"+ getString(R.string.question8String);
+        RadioButton notDifficult = findViewById(R.id.not_difficult);
+        if (notDifficult.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.notDifficultString);
+        }
+        RadioButton somewhatDifficult = findViewById(R.id.somewhat_difficult);
+        if (somewhatDifficult.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.somewhatDifficultString);
+        }
+        RadioButton veryDifficult = findViewById(R.id.very_difficult);
+        if(veryDifficult.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.veryDifficultString);
+        }
+        RadioButton extremelyDifficult = findViewById(R.id.extremely_difficult);
+        if(extremelyDifficult.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.extremelyDifficultString);
+        }
+        //adds checked Personal Wellness answers headline
+        resultsStatement = resultsStatement + "\n"+ getString(R.string.personalWellnessCheckedString);
+        //adds checked response 1 if checked
+        CheckBox check1 = findViewById(R.id.check_1);
+        if(check1.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.check1String);
+        }
+        //adds checked response 2 if checked
+        CheckBox check2 = findViewById(R.id.check_2);
+        if(check2.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.check2String);
+        }
+        //adds checked response 3 if checked
+        CheckBox check3 = findViewById(R.id.check_3);
+        if(check3.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.check3String);
+        }
+        //adds checked response 4 if checked
+        CheckBox check4 = findViewById(R.id.check_4);
+        if(check4.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.check4String);
+        }
+        //adds checked response 5 if checked
+        CheckBox check5 = findViewById(R.id.check_5);
+        if(check5.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.check5String);
+        }
+        //adds checked response 6 if checked
+        CheckBox check6 = findViewById(R.id.check_6);
+        if(check6.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.check6String);
+        }
+        //adds checked response 7 if checked
+        CheckBox check7 = findViewById(R.id.check_7);
+        if(check7.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.check7String);
+        }
+        //adds checked response 8 if checked
+        CheckBox check8 = findViewById(R.id.check_8);
+        if(check8.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.check8String);
+        }
+        //adds checked response 9 if checked
+        CheckBox check9 = findViewById(R.id.check_9);
+        if(check9.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.check9String);
+        }
+        //adds checked response 10 if checked
+        CheckBox check10 = findViewById(R.id.check_10);
+        if(check10.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.check10String);
+        }
+        //adds checked response 11 if checked
+        CheckBox check11 = findViewById(R.id.check_11);
+        if(check11.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.check11String);
+        }
+        //indicates Personal Wellness unchecked answers
+        resultsStatement = resultsStatement + "\n"+ getString(R.string.personalWellnessUncheckedString);
+        //adds checked response 1 if unchecked
+        if(!check1.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.check1String);
+        }
+        //adds checked response 2 if unchecked
+        if(!check2.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.check2String);
+        }
+        //adds checked response 3 if unchecked
+        if(!check3.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.check3String);
+        }
+        //adds checked response 4 if unchecked
+        if(!check4.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.check4String);
+        }
+        //adds checked response 5 if unchecked
+        if(!check5.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.check5String);
+        }
+        //adds checked response 6 if unchecked
+        if(!check6.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.check6String);
+        }
+        //adds checked response 7 if unchecked
+        if(!check7.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.check7String);
+        }
+        //adds checked response 8 if unchecked
+        if(!check8.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.check8String);
+        }
+        //adds checked response 9 if unchecked
+        if(!check9.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.check9String);
+        }
+        //adds checked response 10 if unchecked
+        if(!check10.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.check10String);
+        }
+        //adds checked response 11 if unchecked
+        if(!check11.isChecked()){
+            resultsStatement = resultsStatement + "\n"+ getString(R.string.check11String);
+        }
+        //adds question with write-in answer
+        resultsStatement= resultsStatement + "\n"+ getString(R.string.lastQuestionHintString);
+        //adds write-in answer
+        EditText writeInQuestion = findViewById(R.id.write_in);
+        String writeInAnswer = writeInQuestion.getText().toString();
+        resultsStatement =resultsStatement + "\n"+ writeInAnswer;
+                //sends email to email address of choice
+        Intent emailSummary = new Intent(Intent.ACTION_SENDTO);
+        emailSummary.setData(Uri.parse("mailto:"));
+        emailSummary.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
+        emailSummary.putExtra(Intent.EXTRA_TEXT, resultsStatement);
+        try {
+            startActivity(Intent.createChooser(emailSummary, "Send mail..."));
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //String TAG = "testing";
+    /*
+    This method calculates the number of answers in the "Several Days" category
+     */
+    private void severalDays() {
+        RadioButton severalDays1 = findViewById(R.id.several_days1);
+        if (severalDays1.isChecked()) {
+            finalScore = finalScore + 1;
+        }
+        RadioButton severalDays2 = findViewById(R.id.several_days2);
+        if (severalDays2.isChecked()) {
+            finalScore = finalScore + 1;
+        }
+        RadioButton severalDays3 = findViewById(R.id.several_days3);
+        if (severalDays3.isChecked()) {
+            finalScore = finalScore + 1;
+        }
+        RadioButton severalDays4 = findViewById(R.id.several_days4);
+        if (severalDays4.isChecked()) {
+            finalScore = finalScore + 1;
+        }
+        RadioButton severalDays5 = findViewById(R.id.several_days5);
+        if (severalDays5.isChecked()) {
+            finalScore = finalScore + 1;
+        }
+        RadioButton severalDays6 = findViewById(R.id.several_days6);
+        if (severalDays6.isChecked()) {
+            finalScore = finalScore + 1;
+        }
+        RadioButton severalDays7 = findViewById(R.id.several_days7);
+        if (severalDays7.isChecked()) {
+            finalScore = finalScore + 1;
+        }
+        //  Log.v(TAG, "here is the" + finalScore);
+    }
+
+    /*
+    This method calculates the number of answers in the "More than half the days" category
+     */
+    private void moreThanHalf() {
+        RadioButton moreThanHalf1 = findViewById(R.id.more_than_half1);
+        if (moreThanHalf1.isChecked()) {
+            finalScore = finalScore + 2;
+        }
+        RadioButton moreThanHalf2 = findViewById(R.id.more_than_half2);
+        if (moreThanHalf2.isChecked()) {
+            finalScore = finalScore + 2;
+        }
+        RadioButton moreThanHalf3 = findViewById(R.id.more_than_half3);
+        if (moreThanHalf3.isChecked()) {
+            finalScore = finalScore + 2;
+        }
+        RadioButton moreThanHalf4 = findViewById(R.id.more_than_half4);
+        if (moreThanHalf4.isChecked()) {
+            finalScore = finalScore + 2;
+        }
+        RadioButton moreThanHalf5 = findViewById(R.id.more_than_half5);
+        if (moreThanHalf5.isChecked()) {
+            finalScore = finalScore + 2;
+        }
+        RadioButton moreThanHalf6 = findViewById(R.id.more_than_half6);
+        if (moreThanHalf6.isChecked()) {
+            finalScore = finalScore + 2;
+        }
+        RadioButton moreThanHalf7 = findViewById(R.id.more_than_half7);
+        if (moreThanHalf7.isChecked()) {
+            finalScore = finalScore + 2;
+        }
+    }
+
+    /*
+    This method calculates the number of answers in the "Nearly every day" category
+     */
+    private void nearlyEvery() {
+        RadioButton nearlyEvery1 = findViewById(R.id.nearly_every_day1);
+        if (nearlyEvery1.isChecked()) {
+            finalScore = finalScore + 3;
+        }
+        RadioButton nearlyEvery2 = findViewById(R.id.nearly_every_day2);
+        if (nearlyEvery2.isChecked()) {
+            finalScore = finalScore + 3;
+        }
+        RadioButton nearlyEvery3 = findViewById(R.id.nearly_every_day3);
+        if (nearlyEvery3.isChecked()) {
+            finalScore = finalScore + 3;
+        }
+        RadioButton nearlyEvery4 = findViewById(R.id.nearly_every_day4);
+        if (nearlyEvery4.isChecked()) {
+            finalScore = finalScore + 3;
+        }
+        RadioButton nearlyEvery5 = findViewById(R.id.nearly_every_day5);
+        if (nearlyEvery5.isChecked()) {
+            finalScore = finalScore + 3;
+        }
+        RadioButton nearlyEvery6 = findViewById(R.id.nearly_every_day6);
+        if (nearlyEvery6.isChecked()) {
+            finalScore = finalScore + 3;
+        }
+        RadioButton nearlyEvery7 = findViewById(R.id.nearly_every_day7);
+        if (nearlyEvery7.isChecked()) {
+            finalScore = finalScore + 3;
+        }
+    }
+
+    /*
+    This method creates the results summary, including the final score and how it should be interpreted
+     */
+    private void displayResults(int finalScore) {
+        String resultsStatement = "Final score: " + finalScore;
+        if (finalScore < 5) {
+            resultsStatement = resultsStatement + "\n" + "Your score is below the threshold score for mild anxiety";
+        } else if (finalScore > 4 && finalScore < 10) {
+            resultsStatement = resultsStatement + "\n" + "Your score indicates mild anxiety";
+        } else if (finalScore > 9 && finalScore < 15) {
+            resultsStatement = resultsStatement + "\n" + "Your score indicates moderate anxiety. Please seek further evaluation.";
+        } else if (finalScore > 14 && finalScore < 22) {
+            resultsStatement = resultsStatement + "\n" + "Your score indicates severe anxiety. Please seek further evaluation";
+        }
+        Toast.makeText(getApplicationContext(), resultsStatement, Toast.LENGTH_LONG).show();
+    }
+
+}
