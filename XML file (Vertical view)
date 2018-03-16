@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/titleString"
+        android:textColor="@color/colorPrimary"
+        android:background="#EDE7F6"
+        android:padding="5dp"/>
+
+    <TextView
+        android:id="@+id/over_last_two_weeks"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="@string/overLastTwoWeeksString"
+        android:textColor="@color/colorPrimary"
+        android:textSize="12sp"
+        android:background="#EDE7F6"
+        android:paddingTop="5dp"
+        android:paddingLeft= "5dp"
+        android:paddingRight= "5dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:layout_marginBottom="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="7dp"
+            android:background="#EDE7F6">
+
+            <TextView
+                android:id="@+id/question_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/question1String"
+                android:textColor="@color/colorPrimary"/>
+
+            <RadioGroup
+                android:id="@+id/answer_group1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/not_at_all1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/notAtAllString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/several_days1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/severalDaysString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/more_than_half1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/moreThanHalfString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/nearly_every_day1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nearlyEveryDayString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/question_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/question2String"
+                android:textColor="@color/colorPrimary"/>
+
+            <RadioGroup
+                android:id="@+id/answer_group2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/not_at_all2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/notAtAllString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/several_days2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/severalDaysString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/more_than_half2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/moreThanHalfString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/nearly_every_day2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nearlyEveryDayString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/question_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/question3String"
+                android:textColor="@color/colorPrimary"/>
+
+            <RadioGroup
+                android:id="@+id/answer_group3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/not_at_all3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/notAtAllString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/several_days3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/severalDaysString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/more_than_half3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/moreThanHalfString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/nearly_every_day3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nearlyEveryDayString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/question_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/question4String"
+                android:textColor="@color/colorPrimary"/>
+
+            <RadioGroup
+                android:id="@+id/answer_group4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/not_at_all4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/notAtAllString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/several_days4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/severalDaysString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/more_than_half4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/moreThanHalfString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp" />
+
+                <RadioButton
+                    android:id="@+id/nearly_every_day4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nearlyEveryDayString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/question_5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/question5String"
+                android:textColor="@color/colorPrimary" />
+
+            <RadioGroup
+                android:id="@+id/answer_group5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/not_at_all5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/notAtAllString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/several_days5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/severalDaysString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/more_than_half5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/moreThanHalfString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/nearly_every_day5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nearlyEveryDayString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/question_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/question6String"
+                android:textColor="@color/colorPrimary"/>
+
+            <RadioGroup
+                android:id="@+id/answer_group6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/not_at_all6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/notAtAllString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/several_days6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/severalDaysString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/more_than_half6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/moreThanHalfString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/nearly_every_day6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nearlyEveryDayString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/question_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/question7String"
+                android:textColor="@color/colorPrimary" />
+
+            <RadioGroup
+                android:id="@+id/answer_group7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/not_at_all7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/notAtAllString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/several_days7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/severalDaysString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/more_than_half7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/moreThanHalfString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/nearly_every_day7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nearlyEveryDayString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/question_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/question8String"
+                android:textColor="@color/colorPrimary" />
+
+            <RadioGroup
+                android:id="@+id/answer_group8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/not_difficult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/notDifficultString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/somewhat_difficult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/somewhatDifficultString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/very_difficult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/veryDifficultString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/extremely_difficult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/extremelyDifficultString"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"/>
+
+            </RadioGroup>
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/personal_wellness_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/personalWellnessTitleString"
+        android:textColor="@color/colorPrimary"
+        android:paddingTop="5dp"
+        android:paddingLeft= "5dp"
+        android:paddingRight= "5dp"
+        android:background="#D1C4E9"/>
+
+    <ScrollView
+        android:id="@+id/personal_wellness_scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:paddingTop="7dp"
+        android:paddingLeft= "7dp"
+        android:paddingRight= "7dp"
+        android:layout_marginBottom="15dp"
+        android:background="#D1C4E9">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/check_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/check1String"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp"/>
+
+            <CheckBox
+                android:id="@+id/check_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/check2String"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp"/>
+
+            <CheckBox
+                android:id="@+id/check_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/check3String"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp"/>
+
+            <CheckBox
+                android:id="@+id/check_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/check5String"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp"/>
+
+            <CheckBox
+                android:id="@+id/check_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/check6String"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp"/>
+
+            <CheckBox
+                android:id="@+id/check_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/check4String"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp" />
+
+            <CheckBox
+                android:id="@+id/check_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/check7String"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp"/>
+
+            <CheckBox
+                android:id="@+id/check_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/check8String"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp"/>
+
+            <CheckBox
+                android:id="@+id/check_9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/check9String"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp"/>
+
+            <CheckBox
+                android:id="@+id/check_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/check10String"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp"/>
+
+            <CheckBox
+                android:id="@+id/check_11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/check11String"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="15dp"/>
+        </LinearLayout>
+
+    </ScrollView>
+    <EditText
+        android:id="@+id/write_in"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="5dp"
+        android:layout_marginBottom="5dp"
+        android:hint="@string/lastQuestionHintString"
+        android:textSize="12sp"
+        android:background="#EDE7F6"/>
+    <CheckBox
+        android:id="@+id/email_check"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="12sp"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/emailCheckString"/>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/submit_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="50dp"
+            android:layout_marginEnd= "50dp"
+            android:layout_weight="1"
+            android:background="#B388FF"
+            style="?android:attr/borderlessButtonStyle"
+            android:onClick="submitAnswers"
+            android:text="@string/submitString" />
+
+        <Button
+            android:id="@+id/reset_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_weight="1"
+            android:onClick="resetMethod"
+            android:background="#B388FF"
+            style="?android:attr/borderlessButtonStyle"
+            android:text="@string/resetString" />
+    </LinearLayout>
+</LinearLayout>
